@@ -1,17 +1,17 @@
 -- АВТОГЕНЕРАЦИЯ: tools/catrobat2lua.py — не редактировать вручную.
--- Сцена 80 "Классы" / объект 576 "Пасхальник"
+-- Сцена 80 "Классы" / объект 576 "Снежный кубик"
 local E = require("runtime.engine")
 
 return {
   scene_id = 80,
   object_id = 576,
-  name = "Пасхальник",
+  name = "Снежный кубик",
   scripts = {
     { -- скрипт 1: start
       trigger = "start",
       body = function(o)
         E.set_y(o, E.op_sub(E.op_sub(E.op_sub(E.op_sub(25, 95), 95), 95), 95))
-        if E.truthy((not E.truthy(E.array_contains(E.array(1), "EasterClass")))) then
+        if E.truthy((not E.truthy(E.array_contains(E.array(1), "WinterClass")))) then
           E.set_bright(o, 60)
         end
       end,
@@ -27,9 +27,9 @@ return {
       body = function(o)
         if E.truthy(E.op_eq(E.bright(o), 100)) then
           E.set_gv(47, 5)
-          E.toast("Класс \"пасхальника\" экипирован:")
+          E.toast("Класс \"снежного кубика\" экипирован:")
         else
-          E.toast("У вас нет его, открывайте яйца для открытия!")
+          E.toast("У вас нет его, открывайте леденцов для открытия!")
         end
       end,
     },

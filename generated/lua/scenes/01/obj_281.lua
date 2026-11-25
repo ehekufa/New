@@ -1,11 +1,11 @@
 -- АВТОГЕНЕРАЦИЯ: tools/catrobat2lua.py — не редактировать вручную.
--- Сцена 1 "Меню" / объект 281 "Яйца"
+-- Сцена 1 "Меню" / объект 281 "Леденцы"
 local E = require("runtime.engine")
 
 return {
   scene_id = 1,
   object_id = 281,
-  name = "Яйца",
+  name = "Леденцы",
   scripts = {
     { -- скрипт 1: start
       trigger = "start",

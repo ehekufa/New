@@ -1,17 +1,17 @@
 -- АВТОГЕНЕРАЦИЯ: tools/catrobat2lua.py — не редактировать вручную.
--- Сцена 27 "Кубы" / объект 574 "Заяц-куб"
+-- Сцена 27 "Кубы" / объект 574 "Снежок-куб"
 local E = require("runtime.engine")
 
 return {
   scene_id = 27,
   object_id = 574,
-  name = "Заяц-куб",
+  name = "Снежок-куб",
   scripts = {
     { -- скрипт 1: start
       trigger = "start",
       body = function(o)
         E.set_pos(o, E.op_neg(500), E.op_sub(E.op_sub(E.op_sub(E.op_sub(130, 240), 240), 240), 240))
-        if E.truthy((not E.truthy(E.array_contains(E.array(1), "EasterEggBattle")))) then
+        if E.truthy((not E.truthy(E.array_contains(E.array(1), "WinterGiftBattle")))) then
           E.set_bright(o, 60)
         end
       end,

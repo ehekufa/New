@@ -9,7 +9,7 @@ return {
     { id = 207, name = "Титан", file = "obj_207.lua", scripts = 3 },
     { id = 420, name = "Настя", file = "obj_420.lua", scripts = 3 },
     { id = 510, name = "CodeCracker", file = "obj_510.lua", scripts = 3 },
-    { id = 576, name = "Пасхальник", file = "obj_576.lua", scripts = 3 },
+    { id = 576, name = "Дед Мороз", file = "obj_576.lua", scripts = 3 },
     { id = 422, name = "Лошадь", file = "obj_422.lua", scripts = 3 },
   },
 }

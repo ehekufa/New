@@ -160,14 +160,14 @@ end
 function E.array_add(id, value)
   local a = E.array(id)
   a[#a + 1] = value
-  -- сразу пишем на диск: иначе выпавший в яйце куб («Пасхальник», «Заяц куб»)
-  -- пропадал при перезапуске и не засчитывался
+  -- сразу сохраняем сезонные классы (Дед Мороз, Снежок-куб), чтобы они
+  -- не пропадали после перезапуска
   E.array_save(id)
 end
 -- Конвертер зовёт это из выражения как E.array_contains(E.array(1), "..."),
 -- то есть первым аргументом приходит уже сама таблица (а не id). Раньше это
 -- создавало пустой массив по ключу-таблице и всегда возвращало false —
--- из-за чего выпавший «Пасхальник» и «Заяц куб» не засчитывались.
+-- из-за чего сезонные классы не засчитывались.
 function E.array_contains(id, value)
   local list = type(id) == "table" and id or E.array(id)
   for _, item in ipairs(list) do
@@ -399,7 +399,9 @@ function E.clone(object_id)
     if handle ~= 0 and clone_handler then
       clone_handler(handle, cb.get(handle, "object_id"))
     end
+    return handle
   end
+  return 0
 end
 function E.clone_self(o)
   local handle = cb.clone(o)

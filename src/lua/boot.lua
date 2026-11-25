@@ -40,6 +40,7 @@ local touch_prev = false
 local back_pressed = false
 local var_texts = {}        -- ярлыки текстовых полей, показывающих переменные
 local emeralds = require("runtime.emeralds")
+local winter = require("runtime.winter")
 local abilities = require("runtime.abilities")
 
 local function_scripts = {}   -- [object_id] = { [id функции] = { script =, handle = } }
@@ -142,6 +143,7 @@ local function activate(scene_id)
   local mods, order = load_scene_modules(scene_id)
   register_functions(scene_id, mods)
   emeralds.enter_scene(scene_id)
+  winter.enter_scene(scene_id)
   abilities.enter_scene(scene_id)
   -- Порядок start-скриптов = порядок объектов в Pocket Code. Это важно:
   -- «Интро» боя читает скин врага (переменная 28), а его выставляет скрипт
@@ -507,6 +509,7 @@ function M.frame(dt)
     E.auth_poll()          -- ответ на вход в Firebase приходит из сетевого потока
   end
   emeralds.check_frame(active_scene)
+  winter.check_frame(active_scene)
   abilities.check_frame(active_scene)
   style_promo_field(active_scene)
 

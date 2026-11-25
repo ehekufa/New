@@ -8,7 +8,7 @@ return {
     { id = 410, name = "Игрок 3", file = "obj_410.lua", scripts = 4 },
     { id = 511, name = "Птицетошка", file = "obj_511.lua", scripts = 3 },
     { id = 505, name = "Колонки", file = "obj_505.lua", scripts = 2 },
-    { id = 596, name = "Яйцо", file = "obj_596.lua", scripts = 2 },
+    { id = 596, name = "Леденец", file = "obj_596.lua", scripts = 2 },
     { id = 512, name = "Ивент", file = "obj_512.lua", scripts = 2 },
     { id = 394, name = "Джойстик", file = "obj_394.lua", scripts = 2 },
     { id = 503, name = "Админское сообщение", file = "obj_503.lua", scripts = 3 },

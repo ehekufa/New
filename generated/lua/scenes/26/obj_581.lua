@@ -5,7 +5,7 @@ local E = require("runtime.engine")
 return {
   scene_id = 26,
   object_id = 581,
-  name = "Яйцо",
+  name = "Леденец",
   scripts = {
     { -- скрипт 1: start
       trigger = "start",
@@ -26,8 +26,21 @@ return {
         E.set_image_by_id(o, E.random(1, 2))
         E.show(o)
         E.wait_until(function() return E.truthy(E.touching_object(o, 21)) end, o)
-        E.add_gv(80, 1)
+        if not E.truthy(E.lv(o, 99)) then
+          E.set_lv(o, 99, 1)
+          E.add_gv(80, 1)
+        end
         E.delete_clone(o) return
+      end,
+    },
+    { -- можно подобрать леденец, нажав на него
+      trigger = "touch_up",
+      body = function(o)
+        if E.visible(o) and not E.truthy(E.lv(o, 99)) then
+          E.set_lv(o, 99, 1)
+          E.add_gv(80, 1)
+          E.delete_clone(o)
+        end
       end,
     },
   },

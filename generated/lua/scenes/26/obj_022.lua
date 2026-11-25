@@ -55,5 +55,20 @@ return {
         end
       end,
     },
+    { -- новогодняя атака: босс выпускает конфету примерно раз в 2.8 секунды
+      trigger = "start",
+      body = function(o)
+        E.wait(E.num(3.4))
+        E.forever(function()
+          local candy = E.clone(600)
+          if candy and candy ~= 0 then
+            E.set_pos(candy, E.pos_x(o), E.pos_y(o))
+            E.set_size(candy, 55)
+            E.show(candy)
+          end
+          E.wait(E.num(2.8))
+        end)
+      end,
+    },
   },
 }
