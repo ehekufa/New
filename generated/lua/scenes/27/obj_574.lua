@@ -1,42 +1,24 @@
--- АВТОГЕНЕРАЦИЯ: tools/catrobat2lua.py — не редактировать вручную.
--- Сцена 27 "Кубы" / объект 574 "Снежок-куб"
+-- Единственный зимний скин: «Зимний куб» с гирляндой.
 local E = require("runtime.engine")
-
 return {
   scene_id = 27,
   object_id = 574,
-  name = "Снежок-куб",
+  name = "Зимний куб",
   scripts = {
-    { -- скрипт 1: start
-      trigger = "start",
-      body = function(o)
-        E.set_pos(o, E.op_neg(500), E.op_sub(E.op_sub(E.op_sub(E.op_sub(130, 240), 240), 240), 240))
-        if E.truthy((not E.truthy(E.array_contains(E.array(1), "WinterGiftBattle")))) then
-          E.set_bright(o, 60)
-        end
-      end,
-    },
-    { -- скрипт 2: touch_down
-      trigger = "touch_down",
-      body = function(o)
-        E.set_size(o, 95)
-        E.set_bright(o, 85)
-      end,
-    },
-    { -- скрипт 3: touch_up
-      trigger = "touch_up",
-      body = function(o)
-        if E.truthy(E.op_ne(E.bright(o), 60)) then
-          E.wait(E.num(0.04))
-          E.set_size(o, 100)
-          E.set_bright(o, 100)
-          E.set_gv(12, 10)
-          E.wait(E.num(0.05))
-          E.run_scene(1) return
-        else
-          E.toast("У вас его нету!")
-        end
-      end,
-    },
+    { trigger = "start", body = function(o)
+      E.set_pos(o, 180, E.op_sub(E.op_sub(E.op_sub(E.op_sub(130, 240), 240), 240), 240))
+      E.set_size(o, 70)
+      if not E.truthy(E.array_contains(E.array(1), "WinterCubeSkin")) then E.set_bright(o, 60) end
+    end },
+    { trigger = "function:2", body = function(o) E.add_y(o, E.gv(48)) end },
+    { trigger = "touch_down", body = function(o) E.set_bright(o, 85) end },
+    { trigger = "touch_up", body = function(o)
+      E.set_bright(o, 100)
+      if E.truthy(E.array_contains(E.array(1), "WinterCubeSkin")) then
+        E.set_gv(12, 12)
+        E.run_scene(1) return
+      end
+      E.toast("Собери две части подарка в зимнем событии!")
+    end },
   },
 }
